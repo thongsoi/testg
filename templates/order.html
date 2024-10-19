@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Form</title>
+    <script src="https://unpkg.com/htmx.org@1.9.2"></script>
+</head>
+<body>
+    <form id="orderForm" action="/submit-order" method="post">
+        <!-- Market Dropdown -->
+        <label for="market">Select Market:</label>
+        <select id="market" name="marketID" hx-get="/markets" hx-trigger="load" hx-target="#market" hx-swap="innerHTML" required>
+            <option value="">-- Select a Market --</option>
+        </select>
+
+        <!-- Other form fields -->
+        <label for="productID">Product ID:</label>
+        <input type="text" id="productID" name="productID" required>
+
+        <!-- Submit Button -->
+        <button type="submit">Submit Order</button>
+    </form>
+</body>
+</html>
